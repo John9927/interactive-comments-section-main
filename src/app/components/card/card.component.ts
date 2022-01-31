@@ -18,9 +18,9 @@ export class CardComponent implements OnInit {
       console.log("AllData: ", data);
       this.allData = data;
 
-      // Secondo me l'errore sta qui nel creare una variabile contenente i dati dei replies. Devo poter rendere dinamico il sito in modo che le persone che rispondono vanno a finire sotto il commento. (Nel json c'è la variabile replyingTo)
       this.allData.map((res: any) => {
-        this.allReplies = res.replies;
+        var allReplies = res.replies;
+        this.allReplies.push(...allReplies)
         console.log("Risposte: ", this.allReplies);
       })
     })
