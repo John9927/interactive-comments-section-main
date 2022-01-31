@@ -1,0 +1,86 @@
+.container__card {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  margin: 30px auto;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+.card {
+  display: flex;
+  width: 600px;
+  height: 150px;
+  background-color: white;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.container__item {
+  display: flex;
+  width: 92%;
+  margin: 20px auto;
+}
+
+.container__vote {
+  display: flex;
+  flex-direction: column;
+  width: 35px;
+  background-color: whitesmoke;
+  height: 80px;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.label__display {
+  color: hsl(211, 10%, 45%);
+  font-weight: bold;
+}
+
+.container__items {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 35px;
+  align-items: center;
+}
+
+.avatar {
+  width: 35px;
+  height: 35px;
+}
+
+.name__avatar {
+  margin: 0 15px;
+  color: hsl(212, 24%, 26%);
+  font-weight: bold;
+}
+
+.data {
+  color: hsl(211, 10%, 45%);
+  font-size: 14px;
+}
+
+.reply {
+  position: absolute;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+
+  &:hover {
+    cursor: pointer;
+    .label__reply {
+      color: hsl(239, 57%, 85%);
+    }
+  }
+}
+
+.label__reply {
+  margin-left: 10px;
+  color: hsl(238, 40%, 52%);
+  font-weight: bold;
+}
