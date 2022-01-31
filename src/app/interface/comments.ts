@@ -5,9 +5,8 @@ export interface Comments {
   user: User;
   createdAt: string;
   content: string;
-  replies: Comments;
+  replyingTo: string;
 }
-
 interface User {
   image: Image;
   username: string;
@@ -16,3 +15,4 @@ interface User {
 interface Image {
   png: string;
 }
+

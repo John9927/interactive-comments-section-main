@@ -15,18 +15,19 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.controls.getAll().subscribe((data: Comments[]) => {
-      console.log(data);
+      console.log("AllData: ", data);
       this.allData = data;
+
+      // Secondo me l'errore sta qui nel creare una variabile contenente i dati dei replies. Devo poter rendere dinamico il sito in modo che le persone che rispondono vanno a finire sotto il commento. (Nel json c'è la variabile replyingTo)
       this.allData.map((res: any) => {
         this.allReplies = res.replies;
         console.log("Risposte: ", this.allReplies);
       })
-  })
-}
+    })
+  }
 
-onClickReply(id: number, username: string) {
-  console.log(id)
-  console.log(username)
-}
+  onClickReply(id: number, username: string) {
+    console.log("Id: ", id, "Username: ", username);
+  }
 
 }

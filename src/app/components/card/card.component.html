@@ -1,3 +1,4 @@
+<div class="section">
   <!-- Card -->
   <div class="card" *ngFor="let a of allData">
     <div class="container__item">
@@ -16,7 +17,7 @@
       <div class="container">
         <div class="container__items">
           <img class="avatar"
-            src={{a.user.image.png}} alt="">
+            src={{a.user.image.png}} alt="avatar">
           <div class="name__avatar">{{a.user.username}}</div>
           <div class="data">{{a.createdAt}}</div>
           <div class="reply" (click)="onClickReply(a.id, a.user.username)">
@@ -34,7 +35,7 @@
   </div>
 
   <!-- Reply -->
-  <div class="container__reply">
+  <div >
     <div class="card --reply" *ngFor="let a of allReplies">
       <div class="container__item">
         <!-- Vote -->
@@ -52,7 +53,7 @@
         <div class="container">
           <div class="container__items">
             <img class="avatar"
-              src={{a.user.image.png}} alt="">
+              src={{a.user.image.png}} alt="avatar">
             <div class="name__avatar">{{a.user.username}}</div>
             <div class="data">{{a.createdAt}}</div>
             <div class="reply" (click)="onClickReply(a.id, a.user.username)">
@@ -63,9 +64,11 @@
           </div>
           <!-- Description -->
           <div class="container__description">
-            <span class="description">{{a.content}} </span>
+            <span class="description"><span class="label__chiocciola">@{{a.replyingTo}}</span> {{a.content}} </span>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+</div>
