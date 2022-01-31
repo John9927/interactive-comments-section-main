@@ -11,7 +11,7 @@
 .card {
   display: flex;
   width: 600px;
-  height: 150px;
+  min-height: 150px;
   background-color: white;
   border-radius: 8px;
   margin-bottom: 15px;
@@ -36,8 +36,18 @@
 }
 
 .label__display {
-  color: hsl(211, 10%, 45%);
+  color: hsl(238, 40%, 52%);
   font-weight: bold;
+}
+
+.up:hover {
+  color: hsl(238, 40%, 52%);
+  cursor: pointer;
+}
+
+.down:hover {
+  color: hsl(238, 40%, 52%);
+  cursor: pointer;
 }
 
 .container__items {
@@ -83,4 +93,52 @@
   margin-left: 10px;
   color: hsl(238, 40%, 52%);
   font-weight: bold;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+}
+
+.container__description {
+  display: flex;
+  width: 100%;
+}
+
+.description {
+  margin-top: 15px;
+  color: hsl(211, 10%, 45%);
+}
+
+@media screen and (max-width: 450px) {
+  .card {
+    width: 95%;
+  }
+  .container__items {
+    position: initial;
+  }
+  .container__item {
+    position: relative;
+  }
+  .down {
+    display: flex;
+    align-items: center;
+    margin-top: 1px;
+  }
+  .container__vote {
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 120px;
+    height: 35px;
+  }
+  .reply {
+    height: 40px;
+    bottom: 0;
+  }
+  .description {
+    margin: 15px 0 50px 0px;
+  }
 }
