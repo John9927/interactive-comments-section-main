@@ -1,3 +1,4 @@
+import { ControlsService } from './../../../service/controls.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public controls: ControlsService) { }
 
   ngOnInit(): void {
+    this.controls.getData();
   }
 
   onClickReply() {

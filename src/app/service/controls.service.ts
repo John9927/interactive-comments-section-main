@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class ControlsService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+  allData: any;
+
+  getData() {
+    this.http.get('http://localhost:3000/comments').subscribe((res) => {
+    this.allData = res;
+    console.log(res);
+  })
+  }
 }

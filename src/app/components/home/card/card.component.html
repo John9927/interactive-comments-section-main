@@ -1,5 +1,5 @@
 <div class="container__card">
-  <div class="card">
+  <div class="card" *ngFor="let a of controls.allData">
     <div class="container__item">
       <!-- Vote -->
       <div class="container__vote">
@@ -7,7 +7,7 @@
           <img src="./../../../../assets/interactive-comments-section-main/images/icon-plus.svg" alt="icon plus">
         </div>
         <div class="display">
-          <span class="label__display">0</span>
+          <span class="label__display">{{a.score}}</span>
         </div>
         <div class="down">
           <img src="./../../../../assets/interactive-comments-section-main/images/icon-minus.svg" alt="icon minus">
@@ -16,9 +16,9 @@
       <div class="container">
         <div class="container__items">
           <img class="avatar"
-            src="./../../../../assets/interactive-comments-section-main/images/avatars/image-amyrobson.png" alt="">
-          <div class="name__avatar">amyrobson</div>
-          <div class="data">1 month ago</div>
+            src={{a.user.image.png}} alt="">
+          <div class="name__avatar">{{a.user.username}}</div>
+          <div class="data">{{a.createdAt}}</div>
           <div class="reply" (click)="onClickReply()">
             <img class="logo__reply" src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg"
               alt="logo reply">
@@ -27,7 +27,7 @@
         </div>
         <!-- Description -->
         <div class="container__description">
-          <span class="description">Impressive! you </span>
+          <span class="description">{{a.content}} </span>
         </div>
       </div>
     </div>
