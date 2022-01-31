@@ -1,0 +1,71 @@
+  <!-- Card -->
+  <div class="card" *ngFor="let a of allData">
+    <div class="container__item">
+      <!-- Vote -->
+      <div class="container__vote">
+        <div class="up">
+          <img src="./../../../../assets/interactive-comments-section-main/images/icon-plus.svg" alt="icon plus">
+        </div>
+        <div class="display">
+          <span class="label__display">{{a.score}}</span>
+        </div>
+        <div class="down">
+          <img src="./../../../../assets/interactive-comments-section-main/images/icon-minus.svg" alt="icon minus">
+        </div>
+      </div>
+      <div class="container">
+        <div class="container__items">
+          <img class="avatar"
+            src={{a.user.image.png}} alt="">
+          <div class="name__avatar">{{a.user.username}}</div>
+          <div class="data">{{a.createdAt}}</div>
+          <div class="reply" (click)="onClickReply(a.id, a.user.username)">
+            <img class="logo__reply" src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg"
+              alt="logo reply">
+            <span class="label__reply">Reply</span>
+          </div>
+        </div>
+        <!-- Description -->
+        <div class="container__description">
+          <span class="description">{{a.content}} </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reply -->
+  <div class="container__reply">
+    <div class="card --reply" *ngFor="let a of allReplies">
+      <div class="container__item">
+        <!-- Vote -->
+        <div class="container__vote">
+          <div class="up">
+            <img src="./../../../../assets/interactive-comments-section-main/images/icon-plus.svg" alt="icon plus">
+          </div>
+          <div class="display">
+            <span class="label__display">{{a.score}}</span>
+          </div>
+          <div class="down">
+            <img src="./../../../../assets/interactive-comments-section-main/images/icon-minus.svg" alt="icon minus">
+          </div>
+        </div>
+        <div class="container">
+          <div class="container__items">
+            <img class="avatar"
+              src={{a.user.image.png}} alt="">
+            <div class="name__avatar">{{a.user.username}}</div>
+            <div class="data">{{a.createdAt}}</div>
+            <div class="reply" (click)="onClickReply(a.id, a.user.username)">
+              <img class="logo__reply" src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg"
+                alt="logo reply">
+              <span class="label__reply">Reply</span>
+            </div>
+          </div>
+          <!-- Description -->
+          <div class="container__description">
+            <span class="description">{{a.content}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

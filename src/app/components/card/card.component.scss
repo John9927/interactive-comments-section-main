@@ -1,12 +1,4 @@
-.container__card {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  flex-direction: column;
-  margin: 30px auto;
-  flex-wrap: wrap;
-  align-content: center;
-}
+
 
 .card {
   display: flex;
@@ -112,9 +104,26 @@
   color: hsl(211, 10%, 45%);
 }
 
+
+// REPLY
+
+.container__reply {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.--reply {
+  width: 550px !important;
+}
+
+
 @media screen and (max-width: 450px) {
   .card {
     width: 95%;
+    margin: 0 auto 15px auto;
   }
   .container__items {
     position: initial;
