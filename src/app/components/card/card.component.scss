@@ -10,17 +10,19 @@
 
 .card {
   display: flex;
+  flex-direction: column;
   width: 600px;
   min-height: 150px;
-  background-color: white;
   border-radius: 8px;
-  margin-bottom: 15px;
 }
 
 .container__item {
   display: flex;
   width: 92%;
-  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
 .container__vote {

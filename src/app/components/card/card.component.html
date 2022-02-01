@@ -16,8 +16,7 @@
       </div>
       <div class="container">
         <div class="container__items">
-          <img class="avatar"
-            src={{a.user.image.png}} alt="avatar">
+          <img class="avatar" src={{a.user.image.png}} alt="avatar">
           <div class="name__avatar">{{a.user.username}}</div>
           <div class="data">{{a.createdAt}}</div>
           <div class="reply" (click)="onClickReply(a.id, a.user.username)">
@@ -32,11 +31,8 @@
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- Reply -->
-  <div >
-    <div class="card --reply" *ngFor="let a of allReplies">
+    <!-- Reply -->
+    <div class="card --reply" *ngFor="let a of a.replies">
       <div class="container__item">
         <!-- Vote -->
         <div class="container__vote">
@@ -52,13 +48,12 @@
         </div>
         <div class="container">
           <div class="container__items">
-            <img class="avatar"
-              src={{a.user.image.png}} alt="avatar">
+            <img class="avatar" src={{a.user.image.png}} alt="avatar">
             <div class="name__avatar">{{a.user.username}}</div>
             <div class="data">{{a.createdAt}}</div>
             <div class="reply" (click)="onClickReply(a.id, a.user.username)">
-              <img class="logo__reply" src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg"
-                alt="logo reply">
+              <img class="logo__reply"
+                src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg" alt="logo reply">
               <span class="label__reply">Reply</span>
             </div>
           </div>
@@ -71,5 +66,3 @@
     </div>
   </div>
 </div>
-
-

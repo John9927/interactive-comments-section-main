@@ -6,6 +6,7 @@ export interface Comments {
   createdAt: string;
   content: string;
   replyingTo: string;
+  replies: any;
 }
 interface User {
   image: Image;

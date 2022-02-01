@@ -17,12 +17,6 @@ export class CardComponent implements OnInit {
     this.controls.getAll().subscribe((data: Comments[]) => {
       console.log("AllData: ", data);
       this.allData = data;
-
-      this.allData.map((res: any) => {
-        var allReplies = res.replies;
-        this.allReplies.push(...allReplies)
-        console.log("Risposte: ", this.allReplies);
-      })
     })
   }
 
