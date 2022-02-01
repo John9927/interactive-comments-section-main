@@ -21,6 +21,10 @@ export class ControlsService {
     return this.httpClient.get<Comments[]>(this.apiServer + '/comments/')
   }
 
+  getCurrentUser(): Observable<Comments[]> {
+    return this.httpClient.get<Comments[]>(this.apiServer + '/currentUser/')
+  }
+
   createReply(id: number, comments: string) {
     return this.httpClient.put(this.apiServer + id, JSON.stringify(comments), this.httpOptions);
   }

@@ -50,16 +50,37 @@
           <div class="container__items">
             <img class="avatar" src={{a.user.image.png}} alt="avatar">
             <div class="name__avatar">{{a.user.username}}</div>
+            <!-- Logo you -->
+            <div class="container__you" *ngIf="a.user.username == currentUser">
+              <span class="label__you">you</span>
+            </div>
             <div class="data">{{a.createdAt}}</div>
-            <div class="reply" (click)="onClickReply(a.id, a.user.username)">
+            <!-- Logo Reply -->
+            <div class="reply" *ngIf="a.user.username !== currentUser" (click)="onClickReply(a.id, a.user.username)">
               <img class="logo__reply"
                 src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg" alt="logo reply">
               <span class="label__reply">Reply</span>
             </div>
+            <!-- Logo Delete -->
+            <div class="delete" *ngIf="a.user.username == currentUser" (click)="onClickDelete(a.id, a.user.username)">
+              <img class="logo__delete"
+                src="./../../../../assets/interactive-comments-section-main/images/icon-delete.svg" alt="logo delete">
+              <span class="label__delete">Delete</span>
+            </div>
+            <!-- Logo Edit -->
+            <div class="edit" *ngIf="a.user.username == currentUser" (click)="onClickEdit(a.id, a.user.username)">
+              <img class="logo__edit" src="./../../../../assets/interactive-comments-section-main/images/icon-edit.svg"
+                alt="logo edit">
+              <span class="label__edit">Edit</span>
+            </div>
+
           </div>
           <!-- Description -->
           <div class="container__description">
-            <span class="description"><span class="label__chiocciola">@{{a.replyingTo}}</span> {{a.content}} </span>
+            <span class="description">
+              <span class="label__chiocciola">@{{a.replyingTo}}</span>
+              {{a.content}}
+            </span>
           </div>
         </div>
       </div>

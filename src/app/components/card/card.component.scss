@@ -71,12 +71,30 @@
   font-weight: bold;
 }
 
+.container__you {
+  display: flex;
+  justify-content: center;
+  width: 30px;
+  height: 16px;
+  background-color: #5457b6;
+  align-items: center;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.label__you {
+  color: white;
+  font-weight: bold;
+  font-size: 10px;
+}
+
+
 .data {
   color: hsl(211, 10%, 45%);
   font-size: 14px;
 }
 
-.reply {
+.reply, .edit {
   position: absolute;
   right: 0;
   align-items: center;
@@ -85,10 +103,34 @@
 
   &:hover {
     cursor: pointer;
-    .label__reply {
+    .label__reply,
+    .label__edit {
       color: hsl(239, 57%, 85%);
     }
   }
+}
+
+.logo__delete,
+.logo__edit {
+  margin-right: 7px;
+}
+
+.label__delete {
+  color: red;
+  font-weight: bold;
+}
+
+.label__edit {
+  color: #5457b6;
+  font-weight: bold;
+}
+
+.delete {
+  position: absolute;
+  right: 70px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
 .label__reply {
@@ -118,8 +160,8 @@
 // REPLY
 
 .--reply {
-  width: 550px;
-  margin-left: 50px;
+  width: 535px;
+  margin-left: 60px;
 }
 
 .label__chiocciola {
@@ -154,10 +196,15 @@
     width: 120px;
     height: 35px;
   }
-  .reply {
+  .reply, .edit {
     height: 40px;
     bottom: 7px;
     right: 11px;
+  }
+  .delete {
+    bottom: 7px;
+    right: 80px;
+    height: 40px;
   }
   .description {
     margin: 15px 0 50px 0px;
