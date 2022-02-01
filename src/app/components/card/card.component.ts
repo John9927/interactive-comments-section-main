@@ -11,6 +11,7 @@ export class CardComponent implements OnInit {
   allData: Comments[] = [];
   allReplies: Comments[] = [];
   currentUser: any;
+  imageUser: any;
 
   constructor(public controls: ControlsService) { }
 
@@ -22,11 +23,9 @@ export class CardComponent implements OnInit {
 
     this.controls.getCurrentUser().subscribe((data: any) => {
       var currentUser = data;
+      this.imageUser = currentUser.image.png;
       this.currentUser = currentUser.username;
-      console.log("CurrentUser: ", this.currentUser);
     });
-
-
   }
 
   onClickReply(id: number, username: string) {
@@ -35,12 +34,14 @@ export class CardComponent implements OnInit {
 
   onClickEdit(id: number, username: string) {
     console.log("edit");
-
   }
 
   onClickDelete(id: number, username: string) {
     console.log("Id: ", id, "Username: ", username);
+  }
 
+  submit(text: string) {
+    console.log(text)
   }
 
 }

@@ -131,6 +131,13 @@
   align-items: center;
   justify-content: center;
   display: flex;
+
+  &:hover {
+    cursor: pointer;
+    .label__delete {
+      color: hsl(14, 74%, 60%);
+    }
+  }
 }
 
 .label__reply {
@@ -167,6 +174,56 @@
 .label__chiocciola {
   color: hsl(238, 40%, 52%);
   font-weight: bold;
+}
+
+// Add Comment
+.container__add__comment {
+  display: flex;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.logo__avatar__current__user {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px auto;
+}
+
+textarea {
+  border-radius: 4px;
+  max-width: 400px;
+  &:focus {
+    border: 2px solid #5457b6;
+    outline: none ;
+  }
+}
+
+:placeholder-shown {
+  padding: 10px;
+}
+
+button {
+  border-radius: 8px;
+  border: 0;
+  width: 85px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(238, 40%, 52%);
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  &:hover {
+    cursor: pointer;
+    opacity: .5;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
 
