@@ -24,7 +24,8 @@
           </div>
           <div class="data">{{a.createdAt}}</div>
           <!-- Logo Reply -->
-          <div class="reply" *ngIf="a.user.username !== currentUser" (click)="onClickReply(a.id, a.user.username)">
+          <div class="reply" *ngIf="a.user.username !== currentUser"
+            (click)="onClickReply(a.id, a.user.username)">
             <img class="logo__reply" src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg"
               alt="logo reply">
             <span class="label__reply">Reply</span>
@@ -41,7 +42,8 @@
               alt="logo edit">
             <span class="label__edit">Edit</span>
           </div>
-          <div class="reply" *ngIf="a.user.username !== currentUser" (click)="onClickReply(a.id, a.user.username)">
+          <div class="reply" *ngIf="a.user.username !== currentUser"
+            (click)="onClickReply(a.id, a.user.username)">
             <img class="logo__reply" src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg"
               alt="logo reply">
             <span class="label__reply">Reply</span>
@@ -53,7 +55,25 @@
         </div>
       </div>
     </div>
-    <!-- Reply -->
+
+    <!-- On Click Reply -->
+    <div class="container__add__comment --width" *ngIf="showReply && a.id === idReply">
+      <div class="container__reply">
+        <div class="logo__avatar__current__user">
+          <div class="container__image__avatar__current">
+            <img class="avatar" src="{{imageUser}}" alt="avatar current user">
+          </div>
+          <div class="add__comment">
+            <textarea #text rows="5" placeholder="Add a comment..." [value]="'@' + usernameReply + ', ' "></textarea>
+          </div>
+          <div class="button__send" (click)="submit(imageUser, currentUser, text.value, usernameReply)">
+            <button>REPLY</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comment -->
     <div class="card --reply" *ngFor="let a of a.replies">
       <div class="container__item">
         <!-- Vote -->
@@ -78,7 +98,8 @@
             </div>
             <div class="data">{{a.createdAt}}</div>
             <!-- Logo Reply -->
-            <div class="reply" *ngIf="a.user.username !== currentUser" (click)="onClickReply(a.id, a.user.username)">
+            <div class="reply" *ngIf="a.user.username !== currentUser"
+              (click)="onClickReplyComments(a.id, a.user.username)">
               <img class="logo__reply"
                 src="./../../../../assets/interactive-comments-section-main/images/icon-reply.svg" alt="logo reply">
               <span class="label__reply">Reply</span>
@@ -105,22 +126,38 @@
           </div>
         </div>
       </div>
+
+      <!-- On Click Reply -->
+      <div class="container__add__comment --width" *ngIf="showReplyComments && a.id == idReplyComments">
+        <div class="container__reply">
+          <div class="logo__avatar__current__user">
+            <div class="container__image__avatar__current">
+              <img class="avatar" src="{{imageUser}}" alt="avatar current user">
+            </div>
+            <div class="add__comment">
+              <textarea class="textareaReply" #text rows="5" placeholder="Add a comment..."  [value]="'@' + usernameReplyComments + ', ' "></textarea>
+            </div>
+            <div class="button__send" (click)="submit(imageUser, currentUser, text.value, usernameReplyComments)">
+              <button>REPLY</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Add Comment -->
-  <div class="container__add__comment" >
+  <div class="container__add__comment">
     <div class="logo__avatar__current__user">
-      <div>
-        <img class="avatar" src="{{imageUser}}"
-          alt="avatar current user">
+      <div class="container__image__avatar__current">
+        <img class="avatar" src="{{imageUser}}" alt="avatar current user">
       </div>
-        <div class="add__comment">
-          <textarea #text cols="50" rows="5" placeholder="Add a comment..."></textarea>
-        </div>
-        <div class="button__send" (click)="submit(text.value)">
-          <button>SEND</button>
-        </div>
+      <div class="add__comment">
+        <textarea #text rows="5" placeholder="Add a comment..."></textarea>
+      </div>
+      <div class="button__send" (click)="submit(imageUser, currentUser, text.value, usernameReply)">
+        <button>SEND</button>
+      </div>
     </div>
   </div>
 </div>

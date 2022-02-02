@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Comments } from '../interface/comments';
 
 @Injectable({
@@ -25,8 +25,16 @@ export class ControlsService {
     return this.httpClient.get<Comments[]>(this.apiServer + '/currentUser/')
   }
 
-  createReply(id: number, comments: string) {
-    return this.httpClient.put(this.apiServer + id, JSON.stringify(comments), this.httpOptions);
+  createReply(id: number, comments: any) {
+    return this.httpClient.put(this.apiServer + '/comments/' + id, comments).subscribe(() => console.log("ciao"))
+  }
+
+  getId(id: number) {
+    return this.httpClient.get<Comments>(this.apiServer + '/comments/' + id)
+  }
+
+  randomNumber(min: number, max: number) {
+    return Math.random() * (max - min) + min;
   }
 
 

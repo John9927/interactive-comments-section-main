@@ -12,6 +12,8 @@ export class CardComponent implements OnInit {
   allReplies: Comments[] = [];
   currentUser: any;
   imageUser: any;
+  showReply: Boolean = false;
+  showReplyComments: Boolean = false;
 
   constructor(public controls: ControlsService) { }
 
@@ -28,8 +30,28 @@ export class CardComponent implements OnInit {
     });
   }
 
+  idReply: any;
+  usernameReply: any;
+  idReplyComments: any;
+  usernameReplyComments: any;
+  arrayReplies: any;
+
   onClickReply(id: number, username: string) {
     console.log("Id: ", id, "Username: ", username);
+    this.idReply = id;
+    this.usernameReply = username;
+    this.showReply = true;
+
+    this.controls.getId(id).subscribe((res: any) => {
+      this.arrayReplies = res;
+    })
+  }
+
+  onClickReplyComments(id: number, username: string) {
+    console.log("Id: ", id, "Username: ", username);
+    this.idReplyComments = id;
+    this.usernameReplyComments = username;
+    this.showReplyComments = true;
   }
 
   onClickEdit(id: number, username: string) {
@@ -40,8 +62,12 @@ export class CardComponent implements OnInit {
     console.log("Id: ", id, "Username: ", username);
   }
 
-  submit(text: string) {
-    console.log(text)
+  submit(image: string, username: string, text: string, replyingTo: string) {
+    var user = { image: { png: image }, username: username };
+    var idRandom = this.controls.randomNumber(1,1000);
+    var comments = { id: idRandom, content: text, createdAt: "1 day ago", score: 0, replyingTo: replyingTo, user: user };
+    this.arrayReplies.replies.push(comments);
+    this.controls.createReply(this.idReply, this.arrayReplies)
   }
 
 }
