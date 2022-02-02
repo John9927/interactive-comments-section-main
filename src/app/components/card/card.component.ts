@@ -62,9 +62,16 @@ export class CardComponent implements OnInit {
     console.log("Id: ", id, "Username: ", username);
   }
 
-  submit(image: string, username: string, text: string, replyingTo: string) {
+  submit(image: string, username: string, text: string) {
     var user = { image: { png: image }, username: username };
-    var idRandom = this.controls.randomNumber(1,1000);
+    var idRandom = this.controls.randomNumber(1, 1000);
+    var comments = { id: idRandom, content: text, createdAt: "1 day ago", score: 0, user: user, replies: [] };
+    this.controls.createComment(comments)
+  }
+
+  submitReply(image: string, username: string, text: string, replyingTo: string) {
+    var user = { image: { png: image }, username: username };
+    var idRandom = this.controls.randomNumber(1, 1000);
     var comments = { id: idRandom, content: text, createdAt: "1 day ago", score: 0, replyingTo: replyingTo, user: user };
     this.arrayReplies.replies.push(comments);
     this.controls.createReply(this.idReply, this.arrayReplies)

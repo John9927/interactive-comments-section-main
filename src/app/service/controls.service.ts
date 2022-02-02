@@ -26,7 +26,11 @@ export class ControlsService {
   }
 
   createReply(id: number, comments: any) {
-    return this.httpClient.put(this.apiServer + '/comments/' + id, comments).subscribe(() => console.log("ciao"))
+    return this.httpClient.put(this.apiServer + '/comments/' + id, comments).subscribe(() => window.location.reload())
+  }
+
+  createComment(comments: any) {
+    return this.httpClient.post(this.apiServer + '/comments/', comments).subscribe(() => window.location.reload())
   }
 
   getId(id: number) {

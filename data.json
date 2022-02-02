@@ -17,21 +17,7 @@
         },
         "username": "amyrobson"
       },
-      "replies": [
-        {
-          "id": 667.3011413117451,
-          "content": "@amyrobson, ghj",
-          "createdAt": "1 day ago",
-          "score": 0,
-          "replyingTo": "amyrobson",
-          "user": {
-            "image": {
-              "png": "./../../../../assets/interactive-comments-section-main/images/avatars/image-juliusomo.png"
-            },
-            "username": "juliusomo"
-          }
-        }
-      ]
+      "replies": []
     },
     {
       "id": 4,
