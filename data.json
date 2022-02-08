@@ -17,7 +17,21 @@
         },
         "username": "amyrobson"
       },
-      "replies": []
+      "replies": [
+        {
+          "id": 287.4231886154764,
+          "content": "@amyrobson, ghjghjghj",
+          "createdAt": "1 day ago",
+          "score": 0,
+          "replyingTo": "amyrobson",
+          "user": {
+            "image": {
+              "png": "./../../../../assets/interactive-comments-section-main/images/avatars/image-juliusomo.png"
+            },
+            "username": "juliusomo"
+          }
+        }
+      ]
     },
     {
       "id": 4,
@@ -42,6 +56,19 @@
               "png": "./../../../../assets/interactive-comments-section-main/images/avatars/image-ramsesmiron.png"
             },
             "username": "ramsesmiron"
+          }
+        },
+        {
+          "id": 159.71321983914248,
+          "content": "@ramsesmiron, dfgfghfghg",
+          "createdAt": "1 day ago",
+          "score": 0,
+          "replyingTo": "ramsesmiron",
+          "user": {
+            "image": {
+              "png": "./../../../../assets/interactive-comments-section-main/images/avatars/image-juliusomo.png"
+            },
+            "username": "juliusomo"
           }
         }
       ]

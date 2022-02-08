@@ -9,15 +9,15 @@ import { Comments } from 'src/app/interface/comments';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public control: ControlsService) { }
   filter_array: any = [];
   filter: any = [];
   array: any;
-
   arrayPadre: any = [];
   arrayRisposte: any = [];
-  ngOnInit(): void {
-  }
+
+  constructor(public control: ControlsService) { }
+
+  ngOnInit(): void { }
 
   onClickButton(value: string) {
     // Reset filter array
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
         this.arrayPadre = res;
         this.arrayRisposte = res.replies;
         // SE ID PADRE E' UGUALE A ID CARD ALLORA ELIMINA IL COMMENTO
-        if(this.control.idPadre == this.control.idCard) {
+        if (this.control.idPadre == this.control.idCard) {
           this.control.deleteReply(this.control.idPadre);
         } else {
           // FILTRO LE RISPOSTE
@@ -55,28 +55,6 @@ export class HomeComponent implements OnInit {
           this.control.createReply(this.arrayPadre.id, this.arrayPadre);
         }
       })
-
-
-      // this.control.getAll().subscribe((res) => {
-      //   this.array = res;
-      //   // COMMENTO
-      //   this.filter = res.filter((x: any) => x.id == this.control.idCard);
-      //   if (this.filter.length == 1) {
-      //     this.filter_array.push(...this.filter);
-      //   }
-      //   // RISPOSTA
-      //   res.map((res: any) => {
-      //     this.filter = res.replies.filter((x: any) => x.id == this.control.idCard);
-      //     if (this.filter.length == 1) {
-      //       this.filter_array.push(...this.filter);
-      //     }
-      //   });
-      //   // ELIMINA ID
-      //   if (this.filter_array.length > 0) {
-      //     console.log("Filtro Array", this.filter_array);
-      //     this.control.showDelete = false;
-      //   }
-      // })
     }
   }
 }
