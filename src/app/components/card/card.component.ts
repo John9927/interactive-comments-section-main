@@ -47,8 +47,8 @@ export class CardComponent implements OnInit {
     })
   }
 
-  onClickReplyComments(id: number, username: string) {
-    console.log("Id: ", id, "Username: ", username);
+  onClickReplyComments(id: number, username: string, idPadre: number) {
+    console.log("Id: ", id, "Username: ", username, "Id Padre: ", idPadre);
     this.idReplyComments = id;
     this.usernameReplyComments = username;
     this.showReplyComments = true;
@@ -58,8 +58,11 @@ export class CardComponent implements OnInit {
     console.log("edit");
   }
 
-  onClickDelete(id: number, username: string) {
-    console.log("Id: ", id, "Username: ", username);
+  onClickDelete(id: number, username: string, idPadre: number) {
+    console.log("Id: ", id, "Username: ", username, "Id Padre: ", idPadre);
+    this.controls.idPadre = idPadre;
+    this.controls.showDelete = true;
+    this.controls.idCard = id;
   }
 
   submit(image: string, username: string, text: string) {

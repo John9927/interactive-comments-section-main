@@ -8,6 +8,10 @@ import { Comments } from '../interface/comments';
 })
 
 export class ControlsService {
+  showDelete: Boolean = false;
+  idCard: any;
+  idPadre: any;
+
   private apiServer = "http://localhost:3000";
   httpOptions = {
     headers: new HttpHeaders({
@@ -40,6 +44,12 @@ export class ControlsService {
   randomNumber(min: number, max: number) {
     return Math.random() * (max - min) + min;
   }
+
+  deleteReply(id: number) {
+    return this.httpClient.delete(this.apiServer + '/comments/' + id).subscribe(() => window.location.reload())
+  }
+
+
 
 
 }
