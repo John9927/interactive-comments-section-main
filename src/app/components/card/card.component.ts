@@ -60,6 +60,7 @@ export class CardComponent implements OnInit {
 
   onClickDelete(id: number, username: string, idPadre: number) {
     console.log("Id: ", id, "Username: ", username, "Id Padre: ", idPadre);
+    window.scroll(0,0);
     this.controls.idPadre = idPadre;
     this.controls.showDelete = true;
     this.controls.idCard = id;

@@ -192,7 +192,6 @@ textarea {
   }
 }
 
-
 button {
   border-radius: 8px;
   border: 0;
@@ -299,6 +298,11 @@ button {
 
   textarea {
     min-width: 93%;
+  }
+
+  .textareaReply {
+    padding: 10px 0px;
+    margin-left: -5px;
   }
 
   .add__comment {

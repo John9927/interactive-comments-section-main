@@ -63,8 +63,8 @@
         <div class="add__comment">
           <textarea #text rows="5" placeholder="Add a comment..." [value]="'@' + usernameReply + ', ' "></textarea>
         </div>
-        <div class="button__send" (click)="submitReply(imageUser, currentUser, text.value, usernameReply)">
-          <button>REPLY</button>
+        <div class="button__send" >
+          <button (click)="submitReply(imageUser, currentUser, text.value, usernameReply)">REPLY</button>
         </div>
       </div>
     </div>
