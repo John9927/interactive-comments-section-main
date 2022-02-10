@@ -150,6 +150,7 @@
 
 .description {
   margin-top: 15px;
+  width: 100%;
   color: hsl(211, 10%, 45%);
 }
 
@@ -232,6 +233,18 @@ button {
   min-width: 311px;
   min-height: 75px;
   padding: 10px;
+}
+
+.update {
+  justify-content: flex-end;
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+}
+
+.textarea__edit {
+  max-width: 421px;
+  min-width: 421px;
 }
 
 @media screen and (max-width: 450px) {

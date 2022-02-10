@@ -63,7 +63,7 @@
         <div class="add__comment">
           <textarea #text rows="5" placeholder="Add a comment..." [value]="'@' + usernameReply + ', ' "></textarea>
         </div>
-        <div class="button__send" >
+        <div class="button__send">
           <button (click)="submitReply(imageUser, currentUser, text.value, usernameReply)">REPLY</button>
         </div>
       </div>
@@ -101,14 +101,16 @@
               alt="logo reply">
             <span class="label__reply">Reply</span>
           </div>
-          <!-- Logo Delete -->
-          <div class="delete" *ngIf="b.user.username == currentUser" (click)="onClickDelete(b.id, b.user.username, a.id)">
+          <!-- Logo Delete Reply -->
+          <div class="delete" *ngIf="b.user.username == currentUser"
+            (click)="onClickDelete(b.id, b.user.username, a.id)">
             <img class="logo__delete"
               src="./../../../../assets/interactive-comments-section-main/images/icon-delete.svg" alt="logo delete">
             <span class="label__delete">Delete</span>
           </div>
-          <!-- Logo Edit -->
-          <div class="edit" *ngIf="b.user.username == currentUser" (click)="onClickEdit(b.id, b.user.username)">
+          <!-- Logo Edit Reply-->
+          <div class="edit" *ngIf="b.user.username == currentUser"
+            (click)="onClickEditReply(b.id, b.user.username, a.id)">
             <img class="logo__edit" src="./../../../../assets/interactive-comments-section-main/images/icon-edit.svg"
               alt="logo edit">
             <span class="label__edit">Edit</span>
@@ -116,10 +118,17 @@
         </div>
         <!-- Description -->
         <div class="container__description">
-          <span class="description">
+          <span class="description" *ngIf="!showEdit || b.id !== idReplyEdit">
             <span class="label__chiocciola">@{{b.replyingTo}}</span>
             {{b.content}}
           </span>
+          <!-- Edit -->
+          <div class="description" *ngIf="showEdit && b.id == idReplyEdit">
+            <textarea class="textarea__edit" cols="30" rows="0" [value]="arrayFiglio[0].content" #textarea></textarea>
+            <div class="update" (click)="onClickUpdate(textarea.value)">
+              <button>UPDATE</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

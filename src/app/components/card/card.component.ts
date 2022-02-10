@@ -14,6 +14,7 @@ export class CardComponent implements OnInit {
   imageUser: any;
   showReply: Boolean = false;
   showReplyComments: Boolean = false;
+  showEdit: Boolean = false;
 
   constructor(public controls: ControlsService) { }
 
@@ -58,9 +59,43 @@ export class CardComponent implements OnInit {
     console.log("edit");
   }
 
+  arrayPadre: any = [];
+  arrayFiglio: any = [];
+  idReplyEdit: any;
+  onClickEditReply(id: number, username: string, idPadreReply: number) {
+    this.idReplyEdit = id;
+    // Recupero l'oggetto del padre e del figlio
+    this.controls.getId(idPadreReply).subscribe((res: any) => {
+      this.arrayPadre = res;
+      this.arrayFiglio = this.arrayPadre.replies.filter((result: any) => {
+        return result.id == id;
+      })
+      this.showEdit = true;
+    })
+  }
+
+  onClickUpdate(value: string) {
+    var totale = value;
+    var arr = this.arrayPadre.replies.filter((result: any) => {
+      return result.id == this.idReplyEdit;
+    });
+    var arrFi = this.arrayPadre.replies.filter((result: any) => {
+      return result.id !== this.idReplyEdit;
+    })
+    arr[0].content = [];
+    arr[0].content = totale;
+    // Pusho l'array replies rimasti con l-array replies nuovo
+    arrFi.push(...arr);
+    // Pusho l'array padre con i replies nuovi
+    this.arrayPadre.replies = [];
+    this.arrayPadre.replies.push(...arrFi);
+    // Creo il nuovo array nel json
+    this.controls.createReply(this.arrayPadre.id, this.arrayPadre);
+  }
+
   onClickDelete(id: number, username: string, idPadre: number) {
     console.log("Id: ", id, "Username: ", username, "Id Padre: ", idPadre);
-    window.scroll(0,0);
+    window.scroll(0, 0);
     this.controls.idPadre = idPadre;
     this.controls.showDelete = true;
     this.controls.idCard = id;
